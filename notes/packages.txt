@@ -1,0 +1,6 @@
+# packages that has been installed
+
+@reduxjs/toolkit 
+react-redux
+react-router-dom
+tailwindcss
