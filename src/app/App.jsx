@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="w-[100%] bg-sb_bg">
+      <div className="w-[100%] h-[100vh] bg-sb_bg">
         <Routes>
           <Route path="/" element={<h1>home</h1>} />
           <Route path="/suggest" element={<h1>suggest</h1>} />
