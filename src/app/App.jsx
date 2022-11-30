@@ -1,6 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+
 import Sidebar from "../components/common/Sidebar";
+
+import Explore from "../pages/Explore";
+import Suggest from "../pages/Suggest";
+import TopCharts from "../pages/TopCharts";
+import TopArtists from "../pages/TopArtists";
 
 const App = () => {
   return (
@@ -8,10 +14,10 @@ const App = () => {
       <Sidebar />
       <div className="w-[100%] h-[100vh] bg-sb_bg">
         <Routes>
-          <Route path="/" element={<h1>home</h1>} />
-          <Route path="/suggest" element={<h1>suggest</h1>} />
-          <Route path="/top-charts" element={<h1>top-charts</h1>} />
-          <Route path="/top-artists" element={<h1>top-artists</h1>} />
+          <Route path="/" element={<Explore />} />
+          <Route path="/suggest" element={<Suggest />} />
+          <Route path="/top-charts" element={<TopCharts />} />
+          <Route path="/top-artists" element={<TopArtists />} />
         </Routes>
       </div>
     </div>
