@@ -101,7 +101,7 @@ const SidebarStyling = styled.div`
     display: ${(props) => (props.click ? "flex" : "none")};
     position: absolute;
     z-index: 100;
-    background-color: #191a1fc9;
+    background-color: #191a1ffa;
     animation: ${SmallScreenAnimation} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       both;
   }

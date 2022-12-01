@@ -10,9 +10,11 @@ import TopArtists from "../pages/TopArtists";
 
 const App = () => {
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="w-[100%] h-[100vh] bg-sb_bg">
+    <div className="flex relative">
+      <div className="w-[300px]">
+        <Sidebar />
+      </div>
+      <div className="w-auto">
         <Routes>
           <Route path="/" element={<Explore />} />
           <Route path="/suggest" element={<Suggest />} />
