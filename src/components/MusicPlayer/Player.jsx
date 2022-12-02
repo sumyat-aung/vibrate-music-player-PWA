@@ -12,6 +12,7 @@ const Player = ({
   repeat,
 }) => {
   const ref = useRef(null);
+
   // eslint-disable-next-line no-unused-expressions
   if (ref.current) {
     if (isPlaying) {
@@ -24,6 +25,7 @@ const Player = ({
   useEffect(() => {
     ref.current.volume = volume;
   }, [volume]);
+
   // updates audio element only on seekTime change (and not on each rerender):
   useEffect(() => {
     ref.current.currentTime = seekTime;
@@ -42,3 +44,6 @@ const Player = ({
 };
 
 export default Player;
+
+// TODO * error when it's clicked ( page gone blank )
+// TODO * one of the active song in topCharts doesn't have axtivesong.hub.actions obj to get src , title - Sekret (Remix)
