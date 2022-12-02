@@ -14,7 +14,7 @@ const TopCharts = () => {
   /* ----------------------------------- jsx ---------------------------------- */
 
   return (
-    <div className="h-[100vh]">
+    <div>
       {isFetching && (
         <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center">
           <SongLoading />
@@ -33,7 +33,7 @@ const TopCharts = () => {
         </TitleStyling>
       )}
 
-      <div className="overflow-y-scroll mt-10 flex flex-wrap justify-center">
+      <div className="overflow-y-scroll mt-10 flex flex-wrap justify-center mb-20">
         {data?.map((d, i) => (
           <SongCard
             key={d.key}
