@@ -1,14 +1,17 @@
 import React from "react";
-import { useGetTopChartsQuery } from "../redux/data/Songs";
+import { useSelector } from "react-redux";
+import styled, { keyframes } from "styled-components";
 
+import { useGetTopChartsQuery } from "../redux/data/Songs";
 import SongCard from "../components/songs-card/SongCard";
 import SongLoading from "../components/loading/SongLoading";
 import Error from "../components/common/Error";
-import { useSelector } from "react-redux";
 
 const TopCharts = () => {
   const { data, isFetching, isError } = useGetTopChartsQuery();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
+
+  /* ----------------------------------- jsx ---------------------------------- */
 
   return (
     <div className="h-[100vh]">
@@ -25,9 +28,9 @@ const TopCharts = () => {
       )}
 
       {data && (
-        <h1 className="text-3xl text-gray-50 pt-5 pl-5 xl:pt-10 xl:pl-10 font-mono">
+        <TitleStyling className="text-3xl text-gray-50 pt-5 pl-5 xl:pt-10 xl:pl-10 font-mono">
           Top Charts <i className="fa-solid fa-chart-simple ml-2"></i>
-        </h1>
+        </TitleStyling>
       )}
 
       <div className="overflow-y-scroll mt-10 flex flex-wrap justify-center">
@@ -47,3 +50,9 @@ const TopCharts = () => {
 };
 
 export default TopCharts;
+
+/* ---------------------------- styled-components --------------------------- */
+
+const TitleStyling = styled.div`
+  font-family: "Montserrat Alternates", sans-serif;
+`;
