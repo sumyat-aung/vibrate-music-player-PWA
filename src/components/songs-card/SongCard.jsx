@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
-import { playPause, setActiveSong } from "../../redux/features/playerSlice";
+import { playPause, setActiveSong } from "../../redux/features/playerSlice"; // use it with dispatch
 import PlayPause from "./PlayPause";
 
 const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
@@ -19,15 +19,8 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
   };
 
   return (
-    <SongCardStyling className="flex flex-col w-[250px] p-4 bg-opacity-80 animate-slideup rounded-lg m-0 lg:m-3 2xl:m-5">
+    <SongCardStyling className="flex flex-col w-[250px] p-4 bg-opacity-80 animate-slideup rounded-lg m-0 lg:m-3 2xl:m-5 group">
       <div className="relative w-full">
-        <PlayPause
-          isPlaying={isPlaying}
-          activeSong={activeSong}
-          song={song}
-          handlePause={handlePauseClick}
-          handlePlay={handlePlayClick}
-        />
         <div className="relative">
           <img
             alt="song_img"
@@ -36,7 +29,7 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
                 ? song.images?.coverart
                 : "https://cdn.shopify.com/s/files/1/0361/0781/3004/products/orange_0637efbb-de32-476b-8061-856d2b770d98_150x150.png?v=1660785252"
             }
-            className="w-full h-full rounded-3xl cursor-default lg:cursor-pointer hover:opacity-30"
+            className="w-full h-full rounded-3xl cursor-default lg:cursor-pointer"
           />
           <img
             alt="song_img"
@@ -47,6 +40,20 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
             }
             className="w-full h-full rounded-3xl absolute top-0 left-0 blur"
           />
+
+          <PlayPauseLayerStyling
+            activeSong={activeSong}
+            song={song}
+            className={`absolute w-full h-full top-0 left-0 justify-center items-center bg-black bg-opacity-50 rounded-3xl hidden group-hover:flex`}
+          >
+            <PlayPause
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              song={song}
+              handlePause={handlePauseClick}
+              handlePlay={handlePlayClick}
+            />
+          </PlayPauseLayerStyling>
         </div>
       </div>
 
@@ -81,7 +88,7 @@ const SongCardStyling = styled.div`
 
   .blur {
     filter: blur(10px);
-    z-index: -100;
+    z-index: -1;
   }
 
   @media all and (max-width: 900px) {
@@ -123,4 +130,9 @@ const SongCardStyling = styled.div`
       }
     }
   }
+`;
+
+const PlayPauseLayerStyling = styled.div`
+  display: ${(props) =>
+    props.activeSong?.title === props.song.title ? "flex" : "hidden"};
 `;
