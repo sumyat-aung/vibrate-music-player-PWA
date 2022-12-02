@@ -2,7 +2,7 @@ import React from "react";
 import { useGetTopChartsQuery } from "../redux/data/Songs";
 
 import SongCard from "../components/songs-card/SongCard";
-import SongLoading from "../components/common/SongLoading";
+import SongLoading from "../components/loading/SongLoading";
 import Error from "../components/common/Error";
 import { useSelector } from "react-redux";
 
@@ -25,7 +25,7 @@ const TopCharts = () => {
       )}
 
       {data && (
-        <h1 className="text-3xl text-gray-50 pt-5 ml-5">
+        <h1 className="text-3xl text-gray-50 pt-5 pl-5 xl:pt-10 xl:pl-10 font-mono">
           Top Charts <i className="fa-solid fa-chart-simple ml-2"></i>
         </h1>
       )}
