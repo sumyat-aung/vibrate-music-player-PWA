@@ -44,7 +44,7 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
           <PlayPauseLayerStyling
             activeSong={activeSong}
             song={song}
-            className={`absolute w-full h-full top-0 left-0 justify-center items-center bg-black bg-opacity-50 rounded-3xl hidden group-hover:flex`}
+            className={`absolute w-full h-full top-0 left-0 justify-center items-center bg-black bg-opacity-50 rounded-3xl hidden group-hover:flex layer`}
           >
             <PlayPause
               isPlaying={isPlaying}
@@ -115,6 +115,10 @@ const SongCardStyling = styled.div`
       img {
         width: 100px;
       }
+
+      .layer {
+        width: 100%;
+      }
     }
 
     div:last-child {
@@ -123,7 +127,15 @@ const SongCardStyling = styled.div`
 
     @media all and (max-width: 450px) {
       width: 350px;
-      justify-content: space-between;
+      justify-content: space-around;
+
+      div:first-child {
+        width: 40%;
+
+        img {
+          width: 100px;
+        }
+      }
 
       div:last-child {
         width: 60%;
