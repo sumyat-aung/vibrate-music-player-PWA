@@ -11,14 +11,19 @@ const TopCharts = () => {
 
   return (
     <div className="h-[100vh]">
+      {isFetching && (
+        <div className="w-[500px] h-[86vh] overflow-y-scroll mt-10 flex flex-wrap justify-center">
+          <SongLoading />
+        </div>
+      )}
+
       {data && (
         <h1 className="text-3xl text-gray-50 pt-5 ml-5">
           Top Charts <i className="fa-solid fa-chart-simple ml-2"></i>
         </h1>
       )}
-      <div className="h-[86vh] md:h- overflow-y-scroll mt-10 flex flex-wrap justify-center">
-        {isFetching && <SongLoading />}
 
+      <div className="overflow-y-scroll mt-10 flex flex-wrap justify-center">
         {data?.map((d, i) => (
           <SongCard
             key={d.key}

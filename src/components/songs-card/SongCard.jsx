@@ -36,7 +36,7 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
               ? song.images?.coverart
               : "https://cdn.shopify.com/s/files/1/0361/0781/3004/products/orange_0637efbb-de32-476b-8061-856d2b770d98_150x150.png?v=1660785252"
           }
-          className="w-full h-full rounded-3xl cursor-pointer"
+          className="w-full h-full rounded-3xl cursor-default lg:cursor-pointer"
         />
       </div>
 
@@ -90,8 +90,6 @@ const SongTitleStyling = styled.div`
     div:last-child {
       width: 75%;
     }
-
-    // TODO : wtf is this tho
 
     @media all and (max-width: 450px) {
       width: 350px;

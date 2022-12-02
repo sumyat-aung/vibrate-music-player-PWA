@@ -7,6 +7,16 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+@media only screen and (hover: none) {
+  * {
+    cursor: default;
+  }
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

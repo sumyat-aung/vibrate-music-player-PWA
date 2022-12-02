@@ -5,18 +5,42 @@ import styled, { keyframes } from "styled-components";
 const Sidebar = () => {
   const [click, setClick] = useState(false);
 
+  // close side bar func
+
+  function closeSideBar() {
+    setClick(false);
+  }
+
+  // disable the window scroll when click is true
+
+  function disableScroll() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+  }
+
+  function enableScroll() {
+    window.onscroll = function () {};
+  }
+
+  click && disableScroll();
+  click === false && enableScroll();
+
   /* ----------------------------------- jsx ---------------------------------- */
 
   return (
     <>
       <SidebarStyling
-        className="w-[300px] h-[100vh] bg-sb_bg border-r-2 border-line text-gray-50 flex flex-col items-center justify-between"
+        className="w-[300px] h-[100vh] bg-sb_bg border-r-2 border-line text-gray-50 flex flex-col items-center justify-between fixed"
         click={click}
       >
         <div>
           <Link
             to={"/"}
-            className="flex items-center my-10 text-green font-bold tracking-widest"
+            className="flex items-center my-10 text-green font-bold tracking-widest "
+            onClick={closeSideBar}
           >
             <i className="fa-solid fa-guitar mr-4 text-4xl"></i>
             <div>
@@ -29,6 +53,7 @@ const Sidebar = () => {
             <Link
               to={"/"}
               className="flex my-10 items-center text-lg  text-gray-400 hover:text-gray-100"
+              onClick={closeSideBar}
             >
               <i className="fa-solid fa-volume-low mr-5"></i>
               <h1> Explore </h1>
@@ -36,6 +61,7 @@ const Sidebar = () => {
             <Link
               to={"/suggest"}
               className="flex my-10 items-center text-lg text-gray-400 hover:text-gray-100"
+              onClick={closeSideBar}
             >
               <i className="fa-solid fa-music mr-5"></i>
               <h1> Suggest </h1>
@@ -43,6 +69,7 @@ const Sidebar = () => {
             <Link
               to={"/top-charts"}
               className="flex my-10 items-center text-lg text-gray-400 hover:text-gray-100"
+              onClick={closeSideBar}
             >
               <i className="fa-solid fa-chart-simple mr-5"></i>
               <h1> Top Charts </h1>
@@ -50,6 +77,7 @@ const Sidebar = () => {
             <Link
               to={"/top-artists"}
               className="flex my-10 items-center text-lg text-gray-400 hover:text-gray-100"
+              onClick={closeSideBar}
             >
               <i className="fa-solid fa-palette mr-5"></i>
               <h1> Top Artists </h1>
@@ -59,6 +87,7 @@ const Sidebar = () => {
         <Link
           to={"/"}
           className="flex my-10 items-center text-lg text-gray-400 hover:text-gray-100"
+          onClick={closeSideBar}
         >
           <i className="fa-solid fa-download mr-5"></i>
           <h1> Installtion </h1>
@@ -74,7 +103,7 @@ const Sidebar = () => {
       {click && (
         <BarStyling
           className="fa-solid fa-xmark absolute top-[20px] right-[30px] text-green text-3xl hidden bar"
-          onClick={() => setClick(false)}
+          onClick={closeSideBar}
         ></BarStyling>
       )}
     </>
@@ -97,9 +126,10 @@ const SmallScreenAnimation = keyframes`
 `;
 
 const SidebarStyling = styled.div`
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1280px) {
+    width: 250px;
     display: ${(props) => (props.click ? "flex" : "none")};
-    position: absolute;
+    position: fixed;
     z-index: 100;
     background-color: #191a1ffa;
     animation: ${SmallScreenAnimation} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -113,7 +143,7 @@ const SidebarStyling = styled.div`
 `;
 
 const BarStyling = styled.i`
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1280px) {
     display: flex;
   }
 `;
