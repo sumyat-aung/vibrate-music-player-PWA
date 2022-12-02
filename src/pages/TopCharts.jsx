@@ -12,7 +12,7 @@ const TopCharts = () => {
   return (
     <div className="h-[100vh]">
       {data && (
-        <h1 className="text-3xl text-gray-50 mt-5 ml-5 ">
+        <h1 className="text-3xl text-gray-50 pt-5 ml-5">
           Top Charts <i className="fa-solid fa-chart-simple ml-2"></i>
         </h1>
       )}
