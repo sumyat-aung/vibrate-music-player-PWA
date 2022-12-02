@@ -4,3 +4,4 @@
 react-redux
 react-router-dom
 tailwindcss
+styled-components

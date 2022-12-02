@@ -1,19 +1,28 @@
 import React from "react";
 import { useGetTopChartsQuery } from "../redux/data/Songs";
 
-import SongLoading from "../components/loading/SongLoading";
 import SongCard from "../components/songs-card/SongCard";
+import SongLoading from "../components/common/SongLoading";
+import Error from "../components/common/Error";
 import { useSelector } from "react-redux";
 
 const TopCharts = () => {
-  const { data, isFetching, error } = useGetTopChartsQuery();
+  const { data, isFetching, isError } = useGetTopChartsQuery();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
+
+  console.log(isError);
 
   return (
     <div className="h-[100vh]">
       {isFetching && (
-        <div className="w-[500px] h-[86vh] overflow-y-scroll mt-10 flex flex-wrap justify-center">
+        <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center">
           <SongLoading />
+        </div>
+      )}
+
+      {isError && (
+        <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center">
+          <Error />
         </div>
       )}
 
