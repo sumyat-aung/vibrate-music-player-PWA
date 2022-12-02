@@ -10,8 +10,6 @@ const TopCharts = () => {
   const { data, isFetching, isError } = useGetTopChartsQuery();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  console.log(isError);
-
   return (
     <div className="h-[100vh]">
       {isFetching && (
@@ -37,10 +35,10 @@ const TopCharts = () => {
           <SongCard
             key={d.key}
             song={d}
+            i={i}
             isPlaying={isPlaying}
             activeSong={activeSong}
             data={data}
-            i={i}
           />
         ))}
       </div>
