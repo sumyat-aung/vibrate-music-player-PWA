@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import { useGetTopChartsQuery } from "../redux/data/Songs";
 import SongCard from "../components/songs-card/SongCard";
-import SongLoading from "../components/loading/SongLoading";
+import SongLoading from "../components/common/SongLoading";
 import Error from "../components/common/Error";
 
 const TopCharts = () => {
