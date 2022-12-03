@@ -29,7 +29,7 @@ const TopArtists = () => {
         </TitleStyling>
       )}
 
-      <div className="overflow-y-scroll mt-10 flex flex-wrap justify-center mb-20">
+      <div className="overflow-y-scroll mt-10 flex flex-wrap-reverse justify-center mb-20">
         {data?.map((track) => (
           <ArtistsCard key={track.key} track={track} />
         ))}
