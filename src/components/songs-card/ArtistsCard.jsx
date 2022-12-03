@@ -22,7 +22,7 @@ const ArtistsCard = ({ track }) => {
           className="lg:w-52 sm:w-[150px] w-[120px] rounded-full  absolute top-0 left-0 blur"
         />
       </div>
-      <p className="mt-4 font-semibold sm:text-lg text-base text-center text-white truncate w-full">
+      <p className="mt-4 font-semibold sm:text-lg text-base text-center text-white truncate w-full tracking-widest">
         {track?.subtitle}
       </p>
     </ArtistCardStyling>

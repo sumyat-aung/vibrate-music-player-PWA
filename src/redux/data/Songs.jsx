@@ -17,11 +17,20 @@ export const shazamCoreApi = createApi({
   endpoints: (builder) => ({
     // all the ends point from base url
     getTopCharts: builder.query({ query: () => "/charts/world" }),
+    //
     getSongsByGenre: builder.query({
       query: (genre) => `/charts/genre-world?genre_code=${genre}`,
+    }),
+    //
+    getSongsDetails: builder.query({
+      query: ({ songid }) => `tracks/details?track_id=${songid}`,
     }),
     // d //
   }),
 });
 
-export const { useGetTopChartsQuery, useGetSongsByGenreQuery } = shazamCoreApi;
+export const {
+  useGetTopChartsQuery,
+  useGetSongsByGenreQuery,
+  useGetSongsDetailsQuery,
+} = shazamCoreApi;

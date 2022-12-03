@@ -10,6 +10,9 @@ import Suggest from "../pages/Suggest";
 import TopCharts from "../pages/TopCharts";
 import TopArtists from "../pages/TopArtists";
 
+import SongDetails from "../pages/Details/SongDetails";
+import ArtistDetail from "../pages/Details/ArtistDetail";
+
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
@@ -24,6 +27,8 @@ const App = () => {
           <Route path="/suggest" element={<Suggest />} />
           <Route path="/top-charts" element={<TopCharts />} />
           <Route path="/top-artists" element={<TopArtists />} />
+          <Route path="/songs/:songid" element={<SongDetails />} />
+          <Route path="/artists/:artistsid" element={<ArtistDetail />} />
         </Routes>
       </div>
       {activeSong?.title && (

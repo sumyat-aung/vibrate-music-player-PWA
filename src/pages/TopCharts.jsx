@@ -16,13 +16,13 @@ const TopCharts = () => {
   return (
     <div>
       {isFetching && (
-        <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center">
+        <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center fixed">
           <SongLoading />
         </div>
       )}
 
       {isError && (
-        <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center">
+        <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center fixed">
           <Error />
         </div>
       )}
