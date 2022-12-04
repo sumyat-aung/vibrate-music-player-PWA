@@ -1,5 +1,7 @@
 import React from "react";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const ArtistDetailSongsCard = ({ d }) => {
   return (
     <a

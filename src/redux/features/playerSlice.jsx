@@ -69,15 +69,3 @@ export const {
 } = playerSlice.actions;
 
 export default playerSlice.reducer;
-
-/* -------------------------------------------------------------------------- */
-/*                                    redux                                   */
-/* -------------------------------------------------------------------------- */
-
-// if we need redux data -> we import 2 line below nd use it in components
-
-// import { useSelector, useDispatch } from "react-redux";
-// import { ....actions } from "../redux/features/counter/playerSlice";
-
-// const count = useSelector((state) => state.counter.count);
-// const dispatch = useDispatch();

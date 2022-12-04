@@ -3,10 +3,14 @@ import styled from "styled-components";
 
 import { useGetTopChartsQuery } from "../redux/data/Songs";
 import ArtistsCard from "../components/songs-card/ArtistsCard";
+
 import SongLoading from "../components/common/SongLoading";
 import Error from "../components/common/Error";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const TopArtists = () => {
+  // fetching with redux func
   const { data, isFetching, isError } = useGetTopChartsQuery();
 
   return (

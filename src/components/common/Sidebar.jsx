@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const Sidebar = () => {
   const [click, setClick] = useState(false);
 
@@ -28,7 +30,7 @@ const Sidebar = () => {
   click && disableScroll();
   click === false && enableScroll();
 
-  /* ----------------------------------- jsx ---------------------------------- */
+  //// jsx
 
   return (
     <>

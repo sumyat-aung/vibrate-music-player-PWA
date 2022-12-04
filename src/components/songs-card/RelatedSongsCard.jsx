@@ -6,7 +6,10 @@ import styled from "styled-components";
 import { playPause, setActiveSong } from "../../redux/features/playerSlice";
 import PlayPause from "./PlayPause";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const RelatedSongsCard = ({ d, data, i, isPlaying, activeSong }) => {
+  // use Dispatch to use function from redux store
   const dispatch = useDispatch();
 
   const handlePauseClick = () => {
@@ -18,6 +21,7 @@ const RelatedSongsCard = ({ d, data, i, isPlaying, activeSong }) => {
     dispatch(playPause(true));
   };
 
+  //// jsx
   return (
     <div className="flex flex-col items-center mx-5 my-8 animate-slideup">
       <div className="relative group">

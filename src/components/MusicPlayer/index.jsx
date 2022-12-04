@@ -12,9 +12,12 @@ import Seekbar from "./Seekbar";
 import Track from "./Track";
 import VolumeBar from "./VolumeBar";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const MusicPlayer = () => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } =
     useSelector((state) => state.player);
+
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
@@ -57,6 +60,7 @@ const MusicPlayer = () => {
     }
   };
 
+  //// jsx
   return (
     <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
       <Track
@@ -64,6 +68,7 @@ const MusicPlayer = () => {
         isActive={isActive}
         activeSong={activeSong}
       />
+
       <div className="flex-1 flex flex-col items-center justify-center">
         <Controls
           isPlaying={isPlaying}
@@ -77,6 +82,7 @@ const MusicPlayer = () => {
           handlePrevSong={handlePrevSong}
           handleNextSong={handleNextSong}
         />
+
         <Seekbar
           value={appTime}
           min="0"
@@ -85,6 +91,7 @@ const MusicPlayer = () => {
           setSeekTime={setSeekTime}
           appTime={appTime}
         />
+
         <Player
           activeSong={activeSong}
           volume={volume}

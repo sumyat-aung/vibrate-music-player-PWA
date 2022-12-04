@@ -6,25 +6,23 @@ import { useGetArtistDetailsQuery } from "../../redux/data/Songs";
 import Error from "../../components/common/Error";
 import SongLoading from "../../components/common/SongLoading";
 import ArtistDetailSongsCard from "../../components/songs-card/ArtistsSongCard";
-import { useSelector } from "react-redux";
+
+// ^^^^^ importing necessary components ^^^^^
 
 const ArtistDetail = () => {
-  // fetching Artists Details Base on Query ~
-
+  // fetching Data with redux func with followung params
   let { artistsid } = useParams();
-
   const { data, isError, isFetching } = useGetArtistDetailsQuery({ artistsid });
 
   // navigating
   const navigate = useNavigate();
 
-  // getting state from redux
-  const { activeSong, isPlaying } = useSelector((state) => state.player);
-
+  // turning ( data => return 3  key, value pars of obj )  Into array
   let songs = data && Object.values(data?.songs);
   let albums = data && Object.values(data?.albums);
   let artists = data && Object.values(data?.artists);
 
+  //// jsx
   return (
     <div>
       {isFetching && (

@@ -6,7 +6,10 @@ import { useDispatch } from "react-redux";
 import { playPause, setActiveSong } from "../../redux/features/playerSlice"; // use it with dispatch
 import PlayPause from "./PlayPause";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
+  // use Dispatch to use function from redux store
   const dispatch = useDispatch();
 
   const handlePauseClick = () => {
@@ -17,6 +20,8 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
     dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
+
+  //// jsx
 
   return (
     <SongCardStyling className="flex flex-col w-[250px] p-4 bg-opacity-80 animate-slideup rounded-lg m-0 lg:m-3 2xl:m-5 group">
@@ -78,6 +83,8 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
 };
 
 export default SongCard;
+
+/* ---------------------------- styled components --------------------------- */
 
 const SongCardStyling = styled.div`
   font-family: "Montserrat Alternates", sans-serif;

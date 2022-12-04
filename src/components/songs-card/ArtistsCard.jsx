@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const ArtistsCard = ({ track }) => {
   const navigate = useNavigate();
   return (

@@ -11,8 +11,10 @@ import {
 } from "../../redux/data/Songs";
 import RelatedSongsCard from "../../components/songs-card/RelatedSongsCard";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const SongDetails = () => {
-  // fetching songDetails Base on Query ~
+  // fetching with redux func base on query
   const { songid } = useParams();
   const { data, isError, isFetching } = useGetSongsDetailsQuery({
     songid,
@@ -31,6 +33,7 @@ const SongDetails = () => {
   // navigating
   const navigate = useNavigate();
 
+  //// jsx
   return (
     <div>
       {isFetching && isFetchingRelatedSongs && (

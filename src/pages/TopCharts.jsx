@@ -7,11 +7,16 @@ import SongCard from "../components/songs-card/SongCard";
 import SongLoading from "../components/common/SongLoading";
 import Error from "../components/common/Error";
 
+// ^^^^^ importing necessary components ^^^^^
+
 const TopCharts = () => {
+  // fetching with redux func
   const { data, isFetching, isError } = useGetTopChartsQuery();
+
+  // getting states from redux with selector
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  /* ----------------------------------- jsx ---------------------------------- */
+  //// jsx
 
   return (
     <div>
