@@ -1,14 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import Error from "../../components/common/Error";
 import SongLoading from "../../components/common/SongLoading";
-import PlayPause from "../../components/songs-card/PlayPause";
 import {
   useGetSongsDetailsQuery,
   useGetRelatedSongsDetailsQuery,
 } from "../../redux/data/Songs";
+import RelatedSongsCard from "../../components/songs-card/RelatedSongsCard";
 
 const SongDetails = () => {
   // fetching songDetails Base on Query ~
@@ -16,7 +17,6 @@ const SongDetails = () => {
   const { data, isError, isFetching } = useGetSongsDetailsQuery({
     songid,
   });
-
   const {
     data: relatedSongData,
     isError: isErrorInRelatedSong,
@@ -25,8 +25,8 @@ const SongDetails = () => {
     songid,
   });
 
-  console.log(useGetSongsDetailsQuery({ songid }));
-  console.log(useGetRelatedSongsDetailsQuery({ songid }));
+  // getting state from redux
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   return (
     <div>
@@ -92,55 +92,15 @@ const SongDetails = () => {
           {/***------------------------***/}
           <RelatedStyling className=" bg-sb_bg w-1/4 h-[100vh] overflow-auto">
             <h1 className="text-2xl text-gray-50 p-5"> Related Songs </h1>
-            {relatedSongData?.map((d) => (
-              <div className="flex flex-col items-center mx-5 my-8" key={d.key}>
-                <div className="relative">
-                  <img
-                    alt="song_img"
-                    src={
-                      d.images?.coverart
-                        ? d.images?.coverart
-                        : "https://cdn.shopify.com/s/files/1/0361/0781/3004/products/orange_0637efbb-de32-476b-8061-856d2b770d98_150x150.png?v=1660785252"
-                    }
-                    className="h-32 w-32 rounded-full relative z-20 -mb-16 cursor-default lg:cursor-pointer"
-                  />
-                  <img
-                    alt="song_img"
-                    src={
-                      d.images?.coverart
-                        ? d.images?.coverart
-                        : "https://cdn.shopify.com/s/files/1/0361/0781/3004/products/orange_0637efbb-de32-476b-8061-856d2b770d98_150x150.png?v=1660785252"
-                    }
-                    className="h-32 w-32 rounded-full -mb-16 absolute top-0 left-0 blur"
-                  />
-
-                  {/* <PlayPauseLayerStyling
-                    activeSong={activeSong}
-                    song={song}
-                    className={`absolute w-full h-full top-0 left-0 justify-center items-center bg-black bg-opacity-50 rounded-3xl hidden group-hover:flex layer`}
-                  >
-                    <PlayPause
-                      isPlaying={isPlaying}
-                      activeSong={activeSong}
-                      song={relatedSongData}
-                      handlePause={handlePauseClick}
-                      handlePlay={handlePlayClick}
-                    />
-                  </PlayPauseLayerStyling> */}
-                </div>
-
-                <div className="shadow rounded-lg w-full relative pt-20 pb-5 bg-main">
-                  <div>
-                    <p className="text-center text-gray-50 font-bold">
-                      {d.title}
-                    </p>
-
-                    <div className="flex items-center justify-center pb-4 text-gray-300">
-                      {d.subtitle}
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {relatedSongData?.map((d, i) => (
+              <RelatedSongsCard
+                d={d}
+                key={d.key}
+                i={i}
+                isPlaying={isPlaying}
+                activeSong={activeSong}
+                data={relatedSongData}
+              />
             ))}
           </RelatedStyling>
         </div>

@@ -32,7 +32,7 @@ const App = () => {
         </Routes>
       </div>
       {activeSong?.title && (
-        <div className="fixed h-20 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/20 to-[#13192C] backdrop-blur-lg rounded-t-3xl z-10">
+        <div className="fixed h-20 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/20 to-[#13192C] backdrop-blur-lg rounded-t-3xl z-50">
           <MusicPlayer />
         </div>
       )}
