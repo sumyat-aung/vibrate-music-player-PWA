@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 
 const ArtistDetailSongsCard = ({ d }) => {
   return (
@@ -44,10 +42,3 @@ const ArtistDetailSongsCard = ({ d }) => {
 };
 
 export default ArtistDetailSongsCard;
-
-/* ---------------------------- styled components --------------------------- */
-
-// const PlayPauseLayerStyling = styled.div`
-//   display: ${(props) =>
-//     props.activeSong?.title === props.song.title ? "flex" : "hidden"};
-// `;

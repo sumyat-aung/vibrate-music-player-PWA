@@ -2,7 +2,7 @@ import React from "react";
 import { useGetSongsByGenreQuery } from "../redux/data/Songs";
 
 const Explore = () => {
-  const { data, isFetching, isError } = useGetSongsByGenreQuery();
+  // const { data, isFetching, isError } = useGetSongsByGenreQuery();
 
   const genreList = [
     "POP",
@@ -25,7 +25,7 @@ const Explore = () => {
     "REG_MEXICO",
   ];
 
-  console.log(useGetSongsByGenreQuery(genreList[2]));
+  // console.log(useGetSongsByGenreQuery(genreList[2]));
   return <div className="h-[100vh] flex">Explore</div>;
 };
 

@@ -10,12 +10,16 @@ import Suggest from "../pages/Suggest";
 import TopCharts from "../pages/TopCharts";
 import TopArtists from "../pages/TopArtists";
 
+import Installation from "../pages/Installation";
 import SongDetails from "../pages/Details/SongDetails";
 import ArtistDetail from "../pages/Details/ArtistDetail";
+
+// ^^^^^ importing necessary components ^^^^^
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
+  ////  jsx
   return (
     <div className="flex relative">
       <div className="xl:w-[300px]">
@@ -29,6 +33,7 @@ const App = () => {
           <Route path="/top-artists" element={<TopArtists />} />
           <Route path="/songs/:songid" element={<SongDetails />} />
           <Route path="/artists/:artistsid" element={<ArtistDetail />} />
+          <Route path="/installation" element={<Installation />} />
         </Routes>
       </div>
       {activeSong?.title && (

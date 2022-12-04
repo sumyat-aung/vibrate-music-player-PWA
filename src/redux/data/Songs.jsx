@@ -16,23 +16,32 @@ export const shazamCoreApi = createApi({
 
     /* -------------------- */
     getSongsByGenre: builder.query({
-      query: (genre) => `/charts/genre-world?genre_code=${genre}`,
+      query: (genre) => {
+        console.log("request Songs By Genre Details");
+        `/charts/genre-world?genre_code=${genre}`;
+      },
     }),
 
     /* -------------------- */
     getSongsDetails: builder.query({
-      query: ({ songid }) => `tracks/details?track_id=${songid}`,
+      query: ({ songid }) => {
+        console.log("request Songs Details");
+        `tracks/details?track_id=${songid}`;
+      },
     }),
 
     /* -------------------- */
     getRelatedSongsDetails: builder.query({
-      query: ({ songid }) => `tracks/related?track_id=${songid}`,
+      query: ({ songid }) => {
+        console.log("request related-Songs");
+        return `tracks/related?track_id=${songid}`;
+      },
     }),
-    
+
     /* -------------------- */
     getArtistDetails: builder.query({
       query: ({ artistsid }) => {
-        console.log("request");
+        console.log("request artists Details");
         return `artists/details?artist_id=${artistsid}`;
       },
     }),

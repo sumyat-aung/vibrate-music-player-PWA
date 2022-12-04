@@ -85,7 +85,7 @@ const Sidebar = () => {
           </div>
         </div>
         <Link
-          to={"/"}
+          to={"/installation"}
           className="flex my-10 items-center"
           onClick={closeSideBar}
         >
