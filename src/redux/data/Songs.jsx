@@ -23,7 +23,7 @@ export const shazamCoreApi = createApi({
     getSongsByGenre: builder.query({
       query: (genre) => {
         console.log("request Songs By Genre Details");
-        `/charts/genre-world?genre_code=${genre}`;
+        return `/charts/genre-world?genre_code=${genre}`;
       },
     }),
 
@@ -31,7 +31,7 @@ export const shazamCoreApi = createApi({
     getSongsDetails: builder.query({
       query: ({ songid }) => {
         console.log("request Songs Details");
-        `tracks/details?track_id=${songid}`;
+        return `tracks/details?track_id=${songid}`;
       },
     }),
 
