@@ -25,8 +25,8 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
           <img
             alt="song_img"
             src={
-              song.images?.coverart
-                ? song.images?.coverart
+              song?.images?.coverart
+                ? song?.images?.coverart
                 : "https://cdn.shopify.com/s/files/1/0361/0781/3004/products/orange_0637efbb-de32-476b-8061-856d2b770d98_150x150.png?v=1660785252"
             }
             className="w-full h-full rounded-3xl cursor-default lg:cursor-pointer"
@@ -34,8 +34,8 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
           <img
             alt="song_img"
             src={
-              song.images?.coverart
-                ? song.images?.coverart
+              song?.images?.coverart
+                ? song?.images?.coverart
                 : "https://cdn.shopify.com/s/files/1/0361/0781/3004/products/orange_0637efbb-de32-476b-8061-856d2b770d98_150x150.png?v=1660785252"
             }
             className="w-full h-full rounded-3xl absolute top-0 left-0 blur"
@@ -59,17 +59,17 @@ const SongCard = ({ song, data, i, activeSong, isPlaying }) => {
 
       <div className="mt-4 flex flex-col">
         <p className="font-semibold text-lg text-white tracking-wide truncate hover:text-gray-300">
-          <Link to={`/songs/${song?.key}`}>{song.title}</Link>
+          <Link to={`/songs/${song?.key}`}>{song?.title}</Link>
         </p>
         <p className="text-sm text-gray-300 mt-1 tracking-wide truncate hover:text-white">
           <Link
             to={
-              song.artists
+              song?.artists
                 ? `/artists/${song?.artists[0]?.adamid}`
                 : "/top-artists"
             }
           >
-            {song.subtitle}
+            {song?.subtitle}
           </Link>
         </p>
       </div>
@@ -146,5 +146,5 @@ const SongCardStyling = styled.div`
 
 const PlayPauseLayerStyling = styled.div`
   display: ${(props) =>
-    props.activeSong?.title === props.song.title ? "flex" : "hidden"};
+    props.activeSong?.title === props.song?.title ? "flex" : "hidden"};
 `;

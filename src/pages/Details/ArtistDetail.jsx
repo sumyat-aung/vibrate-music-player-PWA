@@ -1,9 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useGetArtistDetailsQuery } from "../../redux/data/Songs";
 
 import Error from "../../components/common/Error";
 import SongLoading from "../../components/common/SongLoading";
+import ArtistDetailSongsCard from "../../components/songs-card/ArtistsSongCard";
+import { useSelector } from "react-redux";
 
 const ArtistDetail = () => {
   // fetching Artists Details Base on Query ~
@@ -26,9 +29,18 @@ const ArtistDetail = () => {
 
   // const { data, isError, isFetching } = useGetArtistDetailsQuery({ artistsid });
 
-  console.log(data);
+  ///////////////////////////////////////////
 
-  console.log(data && Object.values(data?.songs));
+  // getting state from redux
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
+
+  let songs = data && Object.values(data?.songs);
+  let albums = data && Object.values(data?.albums);
+  let artists = data && Object.values(data?.artists);
+
+  console.log(songs);
+  // console.log(albums);
+  // console.log(artists);
 
   return (
     <div>
@@ -44,9 +56,56 @@ const ArtistDetail = () => {
         </div>
       )}
 
-      {data && <div>jiji</div>}
+      {data && (
+        <div className="flex h-[100vh]">
+          <ArtistsDetailSongs className="w-1/2 overflow-auto">
+            <div className="h-2/5 flex flex-col justify-center items-center">
+              <div className="relative">
+                <img
+                  className="rounded-full w-[300px]"
+                  src={artists[0]?.attributes?.artwork?.url}
+                  alt={artists[0]?.attributes?.name}
+                />
+                <img
+                  className="rounded-full absolute top-0 left-0 blur -z-10 w-[300px]"
+                  src={artists[0]?.attributes?.artwork?.url}
+                />
+              </div>
+              <h1 className="text-gray-50 text-3xl tracking-wider mt-4">
+                {artists[0]?.attributes?.name}
+              </h1>
+            </div>
+
+            <div>
+              <h1 className="text-2xl text-gray-30 text-gray-200 font-semibold tracking-wide sticky top-0 z-50 bg-main p-5">
+                {artists[0]?.attributes?.name}'s Songs
+              </h1>
+              <div className="flex flex-wrap justify-center">
+                {songs.map((song, i) => (
+                  <ArtistDetailSongsCard d={song} />
+                ))}
+              </div>
+            </div>
+          </ArtistsDetailSongs>
+
+          {/* -------------------- */}
+
+          <div className="w-1/2 border overflow-auto">f</div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default ArtistDetail;
+
+/* ---------------------------- styled Component ---------------------------- */
+
+const ArtistsDetailSongs = styled.div`
+  font-family: "Montserrat Alternates", sans-serif;
+  div {
+    .blur {
+      filter: blur(5px);
+    }
+  }
+`;
