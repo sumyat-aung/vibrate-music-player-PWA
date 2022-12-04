@@ -28,9 +28,13 @@ export const shazamCoreApi = createApi({
     getRelatedSongsDetails: builder.query({
       query: ({ songid }) => `tracks/related?track_id=${songid}`,
     }),
+    
     /* -------------------- */
     getArtistDetails: builder.query({
-      query: ({ artistsid }) => `artists/details?artist_id=${artistsid}`,
+      query: ({ artistsid }) => {
+        console.log("request");
+        return `artists/details?artist_id=${artistsid}`;
+      },
     }),
     // d //
   }),

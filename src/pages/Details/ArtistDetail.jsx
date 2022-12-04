@@ -9,13 +9,26 @@ const ArtistDetail = () => {
   // fetching Artists Details Base on Query ~
 
   let { artistsid } = useParams();
-  const {data, isError ,isFetching } = useGetArtistDetailsQuery({ artistsid });
+
+  ///////////////////////////////////////////
+
+  // for development request ^^
+  localStorage.setItem(
+    "artistsData",
+    JSON.stringify(useGetArtistDetailsQuery({ artistsid }))
+  );
+  const { data, isError, isFetching } = JSON.parse(
+    localStorage.getItem("artistsData")
+  );
+  // for development request ^^
+
+  ///////////////////////////////////////////
+
+  // const { data, isError, isFetching } = useGetArtistDetailsQuery({ artistsid });
 
   console.log(data);
-  console.log(data && Object.values(data?.songs))
 
-
-
+  console.log(data && Object.values(data?.songs));
 
   return (
     <div>
