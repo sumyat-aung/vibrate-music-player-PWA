@@ -20,7 +20,7 @@ const RelatedSongsCard = ({ d, data, i, isPlaying, activeSong }) => {
   };
 
   return (
-    <div className="flex flex-col items-center mx-5 my-8 ">
+    <div className="flex flex-col items-center mx-5 my-8 animate-slideup">
       <div className="relative group">
         <img
           alt="song_img"
