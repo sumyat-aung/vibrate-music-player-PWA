@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
@@ -28,6 +28,9 @@ const SongDetails = () => {
   // getting state from redux
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
+  // navigating
+  const navigate = useNavigate();
+
   return (
     <div>
       {isFetching && isFetchingRelatedSongs && (
@@ -43,7 +46,7 @@ const SongDetails = () => {
       )}
 
       {data && relatedSongData && (
-        <div className="flex flex-col lg:flex-row lg:h-[100vh] overflow-auto">
+        <div className="flex flex-col lg:flex-row lg:h-[100vh] overflow-auto relative">
           {/***------------------------***/}
           <SongDetailsStyling className="w-3/4 h-[100vh] flex flex-col items-center px-20">
             <div className="flex flex-col m-5 items-center">
@@ -107,6 +110,13 @@ const SongDetails = () => {
               ))}
             </div>
           </RelatedStyling>
+
+          <button
+            className="absolute top-5 left-5 cursor-default sm:cursor-pointer"
+            onClick={() => navigate(-1)}
+          >
+            <i className="fa-solid fa-arrow-left text-gray-50 text-xl "></i>
+          </button>
         </div>
       )}
     </div>
