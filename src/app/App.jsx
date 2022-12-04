@@ -21,7 +21,7 @@ const App = () => {
       <div className="xl:w-[300px]">
         <Sidebar />
       </div>
-      <div className="xl:w-[calc(100vw-300px)]">
+      <div className="xl:w-[calc(100vw-300px)] w-[100vw]">
         <Routes>
           <Route path="/" element={<Explore />} />
           <Route path="/suggest" element={<Suggest />} />

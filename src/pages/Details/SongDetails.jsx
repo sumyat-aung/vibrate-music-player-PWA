@@ -43,7 +43,7 @@ const SongDetails = () => {
       )}
 
       {data && relatedSongData && (
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row lg:h-[100vh] overflow-auto">
           {/***------------------------***/}
           <SongDetailsStyling className="w-3/4 h-[100vh] flex flex-col items-center px-20">
             <div className="flex flex-col m-5 items-center">
@@ -90,18 +90,22 @@ const SongDetails = () => {
             </div>
           </SongDetailsStyling>
           {/***------------------------***/}
-          <RelatedStyling className=" bg-sb_bg w-1/4 h-[100vh] overflow-auto">
-            <h1 className="text-2xl text-gray-50 p-5"> Related Songs </h1>
-            {relatedSongData?.map((d, i) => (
-              <RelatedSongsCard
-                d={d}
-                key={d.key}
-                i={i}
-                isPlaying={isPlaying}
-                activeSong={activeSong}
-                data={relatedSongData}
-              />
-            ))}
+          <RelatedStyling className=" bg-sb_bg w-1/4 h-[100vh]  overflow-auto">
+            <h1 className="text-2xl text-gray-50 p-5 sticky top-0 z-50 bg-sb_bg">
+              Related Songs
+            </h1>
+            <div className="flex flex-wrap flex-row justify-center items-center lg:block sm:m-0 mx-5">
+              {relatedSongData?.map((d, i) => (
+                <RelatedSongsCard
+                  d={d}
+                  key={d.key}
+                  i={i}
+                  isPlaying={isPlaying}
+                  activeSong={activeSong}
+                  data={relatedSongData}
+                />
+              ))}
+            </div>
           </RelatedStyling>
         </div>
       )}
@@ -120,11 +124,45 @@ const SongDetailsStyling = styled.div`
     filter: blur(5px);
     z-index: -1;
   }
+  @media all and (max-width: 1600px) {
+    width: 60%;
+
+    img {
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  @media all and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media all and (max-width: 700px) {
+    img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  @media all and (max-width: 450px) {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;
 
 const RelatedStyling = styled.div`
   font-family: "Montserrat Alternates", sans-serif;
   .blur {
     filter: blur(5px);
+  }
+
+  @media all and (max-width: 1600px) {
+    width: 40%;
+  }
+
+  @media all and (max-width: 1024px) {
+    width: 100%;
   }
 `;

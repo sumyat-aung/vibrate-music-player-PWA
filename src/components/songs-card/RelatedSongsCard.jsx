@@ -20,7 +20,7 @@ const RelatedSongsCard = ({ d, data, i, isPlaying, activeSong }) => {
   };
 
   return (
-    <div className="flex flex-col items-center mx-5 my-8">
+    <div className="flex flex-col items-center mx-5 my-8 ">
       <div className="relative group">
         <img
           alt="song_img"
@@ -56,7 +56,7 @@ const RelatedSongsCard = ({ d, data, i, isPlaying, activeSong }) => {
         </PlayPauseLayerStyling>
       </div>
 
-      <div className="shadow rounded-lg w-full relative pt-20 pb-5 bg-main">
+      <div className="shadow rounded-lg w-[300px] sm:w-[350px] lg:w-full relative pt-20 pb-5 bg-main">
         <div>
           <Link
             to={`/songs/${d?.key}`}
