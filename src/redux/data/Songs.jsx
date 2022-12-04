@@ -17,15 +17,18 @@ export const shazamCoreApi = createApi({
   endpoints: (builder) => ({
     // all the ends point from base url
     getTopCharts: builder.query({ query: () => "/charts/world" }),
-    //
+
+    /* -------------------- */
     getSongsByGenre: builder.query({
       query: (genre) => `/charts/genre-world?genre_code=${genre}`,
     }),
-    //
+
+    /* -------------------- */
     getSongsDetails: builder.query({
       query: ({ songid }) => `tracks/details?track_id=${songid}`,
     }),
-    //
+
+    /* -------------------- */
     getRelatedSongsDetails: builder.query({
       query: ({ songid }) => `tracks/related?track_id=${songid}`,
     }),
