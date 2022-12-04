@@ -63,7 +63,7 @@ const ArtistDetail = () => {
               </h1>
               <div className="flex flex-wrap justify-center overflow-auto">
                 {songs.map((song) => (
-                  <ArtistDetailSongsCard d={song} />
+                  <ArtistDetailSongsCard d={song} key={song.key}/>
                 ))}
               </div>
             </div>
