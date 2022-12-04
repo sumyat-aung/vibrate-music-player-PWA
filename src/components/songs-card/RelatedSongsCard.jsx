@@ -56,7 +56,7 @@ const RelatedSongsCard = ({ d, data, i, isPlaying, activeSong }) => {
         </PlayPauseLayerStyling>
       </div>
 
-      <div className="shadow rounded-lg w-[300px] sm:w-[350px] lg:w-full relative pt-20 pb-5 bg-main">
+      <div className="shadow rounded-lg w-[300px] sm:w-[350px] lg:w-full  px-2 relative pt-20 pb-5 bg-main">
         <div>
           <Link
             to={`/songs/${d?.key}`}
