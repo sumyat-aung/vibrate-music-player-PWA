@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const ArtistsCard = ({ track }) => {
   const navigate = useNavigate();
-
   return (
     <ArtistCardStyling
       className="flex flex-col justify-center items-center w-[250px] lg:p-4 p-2 lg:m-5 m-0 animate-slideup cursor-default sm:cursor-pointer"

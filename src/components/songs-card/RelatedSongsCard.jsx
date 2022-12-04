@@ -65,9 +65,12 @@ const RelatedSongsCard = ({ d, data, i, isPlaying, activeSong }) => {
             {d?.title}
           </Link>
 
-          <div className="flex items-center justify-center pb-4 text-gray-300">
+          <Link
+            to={`/artists/${d?.artists[0].adamid}`}
+            className="flex items-center justify-center pb-4 text-gray-300"
+          >
             {d?.subtitle}
-          </div>
+          </Link>
         </div>
       </div>
     </div>

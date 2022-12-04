@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
@@ -66,9 +66,12 @@ const SongDetails = () => {
                 <h1 className="text-2xl text-gray-50 tracking-wide">
                   {data.title}
                 </h1>
-                <h1 className="text-lg text-gray-400 tracking-wide">
+                <Link
+                  to={`/artists/${data?.artists[0].adamid}`}
+                  className="text-lg text-gray-400 tracking-wide block"
+                >
                   {data.subtitle}
-                </h1>
+                </Link>
               </div>
             </div>
             <div className="mb-10 overflow-auto mt-5 text-center">
