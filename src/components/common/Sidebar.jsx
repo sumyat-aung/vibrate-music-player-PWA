@@ -98,13 +98,13 @@ const Sidebar = () => {
 
       {!click && (
         <BarStyling
-          className="fa-solid fa-bars absolute top-[20px] right-[30px] text-green text-2xl hidden bar z-50"
+          className="fa-solid fa-bars absolute top-[20px] right-[30px]  text-gray-50 text-2xl hidden bar z-50"
           onClick={() => setClick(true)}
         ></BarStyling>
       )}
       {click && (
         <BarStyling
-          className="fa-solid fa-xmark absolute top-[20px] right-[30px] text-green text-3xl hidden bar z-50"
+          className="fa-solid fa-xmark absolute top-[20px] right-[30px] text-gray-50 text-3xl hidden bar z-50"
           onClick={closeSideBar}
         ></BarStyling>
       )}

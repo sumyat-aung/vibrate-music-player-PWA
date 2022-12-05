@@ -94,7 +94,7 @@ const SongCardStyling = styled.div`
   }
 
   .blur {
-    filter: blur(10px);
+    filter: blur(8px);
     z-index: -1;
   }
 

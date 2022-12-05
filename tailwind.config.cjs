@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         sb_bg: "#13192C",
         main: "#181E31",
-        green: "#24BC58",
+        sky: "rgb(146, 203, 252)",
       },
       animation: {
         slideup: "slideup 1s ease-in-out",

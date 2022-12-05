@@ -29,7 +29,7 @@ const TopArtists = () => {
 
       {data && (
         <TitleStyling className="text-3xl text-gray-50 pt-5 pl-5 xl:pt-10 xl:pl-10 font-mono">
-          Top Artists <i className="fa-solid fa-chart-simple ml-2"></i>
+          Top Artists <i className="fa-solid fa-palette ml-2"></i>
         </TitleStyling>
       )}
 

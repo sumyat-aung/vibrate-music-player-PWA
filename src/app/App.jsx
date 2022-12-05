@@ -14,6 +14,8 @@ import Installation from "../pages/Installation";
 import SongDetails from "../pages/Details/SongDetails";
 import ArtistDetail from "../pages/Details/ArtistDetail";
 
+import Search from "../pages/Search";
+
 // ^^^^^ importing necessary components ^^^^^
 
 const App = () => {
@@ -34,6 +36,7 @@ const App = () => {
           <Route path="/songs/:songid" element={<SongDetails />} />
           <Route path="/artists/:artistsid" element={<ArtistDetail />} />
           <Route path="/installation" element={<Installation />} />
+          <Route path="/search/:searchTerm" element={<Search />} />
         </Routes>
       </div>
       {activeSong?.title && (
