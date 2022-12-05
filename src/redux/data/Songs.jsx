@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import API_KEY from "../../key/key";
+import { API_KEY } from "../../key/key";
 
 export const shazamCoreApi = createApi({
   reducerPath: "shazamCoreApi",
@@ -50,6 +50,14 @@ export const shazamCoreApi = createApi({
         return `artists/details?artist_id=${artistsid}`;
       },
     }),
+    /* -------------------- */
+
+    getSongsByCountry: builder.query({
+      query: (countryCode) => {
+        console.log("request country charts");
+        return `/charts/country?country_code=${countryCode}`;
+      },
+    }),
     //// the endpoints
   }),
 });
@@ -60,4 +68,5 @@ export const {
   useGetSongsDetailsQuery,
   useGetRelatedSongsDetailsQuery,
   useGetArtistDetailsQuery,
+  useGetSongsByCountryQuery,
 } = shazamCoreApi;

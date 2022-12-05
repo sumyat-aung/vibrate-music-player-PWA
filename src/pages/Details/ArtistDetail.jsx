@@ -63,7 +63,7 @@ const ArtistDetail = () => {
               </h1>
               <div className="flex flex-wrap justify-center overflow-auto">
                 {songs.map((song) => (
-                  <ArtistDetailSongsCard d={song} key={song.key}/>
+                  <ArtistDetailSongsCard d={song} key={song.key} />
                 ))}
               </div>
             </div>
@@ -77,7 +77,10 @@ const ArtistDetail = () => {
             </h1>
             <div className="flex flex-col mt-10 sm:px-10 px-1 justify-center wrapper">
               {albums.map((al) => (
-                <div className="bg-sb_bg rounded shadow flex my-5">
+                <div
+                  className="bg-sb_bg rounded shadow flex my-5 animate-slideright"
+                  key={al.key}
+                >
                   <div className="relative">
                     <img
                       className="rounded w-[250px] h-full object-cover "
