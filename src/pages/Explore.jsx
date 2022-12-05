@@ -17,7 +17,6 @@ const Explore = () => {
   const [selected, setSelected] = useState("ROCK");
 
   const { data, isFetching, isError } = useGetSongsByGenreQuery(selected);
-  console.log(useGetSongsByGenreQuery(selected));
 
   // getting states from redux with selector
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -45,8 +44,8 @@ const Explore = () => {
         {!isFetching && (
           <>
             {data && (
-              <div className="text-xl text-gray-50 pl-5  font-mono  -mt-10">
-                Discover By {selected}
+              <div className="text-xl text-gray-50 pl-5  font-mono -mt-10">
+                Discover "{selected}"
               </div>
             )}
 
@@ -78,4 +77,10 @@ const ExploreStyling = styled.div`
     font-family: "Montserrat Alternates", sans-serif;
   }
   font-family: "Montserrat Alternates", sans-serif;
+
+  @media all and (max-width: 650px) {
+    .-mt-10 {
+      margin-top: 0;
+    }
+  }
 `;
