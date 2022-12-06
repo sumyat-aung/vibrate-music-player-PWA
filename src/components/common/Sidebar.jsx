@@ -84,16 +84,16 @@ const Sidebar = () => {
               <i className="fa-solid fa-palette mr-5"></i>
               <h1> Top Artists </h1>
             </Link>
+            <Link
+              to={"/installation"}
+              className="flex my-10 items-center"
+              onClick={closeSideBar}
+            >
+              <i className="fa-solid fa-download mr-5"></i>
+              <h1> Installtion </h1>
+            </Link>
           </div>
         </div>
-        <Link
-          to={"/installation"}
-          className="flex my-10 items-center"
-          onClick={closeSideBar}
-        >
-          <i className="fa-solid fa-download mr-5"></i>
-          <h1> Installtion </h1>
-        </Link>
       </SidebarStyling>
 
       {!click && (

@@ -67,7 +67,6 @@ export const shazamCoreApi = createApi({
         return `search/multi?query=${searchTerm}&search_type=SONGS_ARTISTS`;
       },
     }),
-    //// the endpoints
   }),
 });
 
