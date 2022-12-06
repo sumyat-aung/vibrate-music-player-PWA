@@ -23,27 +23,36 @@ const Player = ({
   }
 
   useEffect(() => {
-    ref.current.volume = volume;
+    if (ref && ref.current) {
+      ref.current.volume = volume;
+    }
   }, [volume]);
 
   // updates audio element only on seekTime change (and not on each rerender):
   useEffect(() => {
-    ref.current.currentTime = seekTime;
+    if (ref && ref.current) {
+      ref.current.currentTime = seekTime;
+    }
   }, [seekTime]);
 
   return (
-    <audio
-      src={activeSong?.hub?.actions[1]?.uri}
-      ref={ref}
-      loop={repeat}
-      onEnded={onEnded}
-      onTimeUpdate={onTimeUpdate}
-      onLoadedData={onLoadedData}
-    />
+    <>
+      {activeSong &&
+        activeSong.hub &&
+        activeSong.hub.actions &&
+        activeSong.hub.actions[1] &&
+        activeSong.hub.actions[1].uri && (
+          <audio
+            src={activeSong?.hub?.actions[1]?.uri}
+            ref={ref}
+            loop={repeat}
+            onEnded={onEnded}
+            onTimeUpdate={onTimeUpdate}
+            onLoadedData={onLoadedData}
+          />
+        )}
+    </>
   );
 };
 
 export default Player;
-
-// TODO * error when it's clicked ( page gone blank )
-// TODO * one of the active song in topCharts doesn't have axtivesong.hub.actions obj to get src , title - Sekret (Remix)
