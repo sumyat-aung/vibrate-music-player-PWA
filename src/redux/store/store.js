@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import SerializableStateInvariantMiddleware from "redux-devtools-instrument";
 
 // slices
 import playerReducer from "../features/playerSlice";
@@ -13,8 +14,13 @@ const store = configureStore({
     [shazamCoreApi.reducerPath]: shazamCoreApi.reducer,
     player: playerReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(shazamCoreApi.middleware),
+  middleware: (getDefaultMiddleware) => {
+    const defaultMiddleware = getDefaultMiddleware();
+    const middleware = defaultMiddleware.filter(
+      (middleware) => middleware !== SerializableStateInvariantMiddleware
+    );
+    return middleware.concat(shazamCoreApi.middleware);
+  },
 });
 
 export default store;

@@ -15,11 +15,8 @@ const Search = () => {
 
   let { data, isError, isFetching } = useGetSongsBySearchQuery(searchTerm);
 
-  console.log(useGetSongsBySearchQuery(searchTerm));
-
   let songs = data?.tracks?.hits;
   let artists = data?.artists?.hits;
-  console.log(artists);
 
   // getting states from redux with selector
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -53,7 +50,7 @@ const Search = () => {
             <div className="flex flex-wrap justify-center lg:w-2/3 w-full lg:h-[calc(100vh-60px)] h-auto pb-5 lg:pb-0 shadow overflow-auto border-b border-sb_bg">
               {songs?.map((d, i) => (
                 <SongCard
-                  key={d.key}
+                  key={d.track.key}
                   song={d.track}
                   i={i}
                   isPlaying={isPlaying}
