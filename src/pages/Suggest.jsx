@@ -33,7 +33,7 @@ const Suggest = () => {
 
       {data && (
         <TitleStyling className="text-3xl text-gray-50 pt-5 pl-5 xl:pt-10 xl:pl-10 font-mono">
-          Top Charts <i className="fa-solid fa-chart-simple ml-2"></i>
+          Suggest <i className="fa-solid fa-music ml-2"></i>
         </TitleStyling>
       )}
 
