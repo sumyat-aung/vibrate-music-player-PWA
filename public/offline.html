@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Su Myat Aung" />
+
+    <title>Vibrate | Music Player</title>
+    <style type="text/css">
+      body {
+        height: 100vh;
+        margin: 0;
+        background: #181e31;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 40px;
+        color: gray;
+        font-family: monospace;
+      }
+
+      button {
+        padding: 12px 40px;
+        margin-top: 50px;
+        border-radius: 5px;
+        color: #181e31;
+        background-color: gray;
+        border: none;
+        font-size: 24px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      @media all and (max-width: 700px) {
+        h1 {
+          font-size: 20px;
+        }
+        button {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Check your internet connection and try again.</h1>
+    <button onclick="window.location.reload()">Retry</button>
+  </body>
+</html>

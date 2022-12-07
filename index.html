@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+
+    <meta name="theme-color" content="#181e31" />
+    <link rel="apple-touch-icon" href="./public/favicon.png" />
+    <link rel="manifest" href="./public/manifest.json" />
+
     <meta name="author" content="Su Myat Aung" />
 
     <title>Vibrate | Music Player</title>
 
     <!--css link -->
-    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src//css//style.css" />
 
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
 
@@ -24,5 +29,15 @@
   <body class="bg-main">
     <div id="root"></div>
     <script type="module" src="./src/main.jsx"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./serviceworker.js")
+            .then((reg) => console.log("Success: ", reg.scope))
+            .catch((err) => console.log("Failure: ", err));
+        });
+      }
+    </script>
   </body>
 </html>

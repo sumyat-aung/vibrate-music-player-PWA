@@ -1,0 +1,16 @@
+{
+  "short_name": "Vibrate",
+  "name": "Vibrate | Music Player",
+  "icons": [
+    {
+      "src": "./logo.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#181e31",
+  "background_color": "#181e31"
+}
