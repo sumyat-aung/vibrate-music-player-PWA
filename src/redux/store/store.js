@@ -1,4 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
+
+// to disable middleware 
 import SerializableStateInvariantMiddleware from "redux-devtools-instrument";
 
 // slices
@@ -21,6 +23,6 @@ const store = configureStore({
     );
     return middleware.concat(shazamCoreApi.middleware);
   },
-});
+}); 
 
 export default store;
