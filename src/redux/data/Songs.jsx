@@ -3,6 +3,7 @@ import { API_KEY } from "../../key/key";
 
 export const shazamCoreApi = createApi({
   reducerPath: "shazamCoreApi",
+  // base url
   baseQuery: fetchBaseQuery({
     baseUrl: "https://shazam-core.p.rapidapi.com/v1",
     prepareHeaders: (headers) => {

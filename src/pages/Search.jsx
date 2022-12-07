@@ -21,6 +21,7 @@ const Search = () => {
   // getting states from redux with selector
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
+  //// jsx
   return (
     <SearchStyling className="h-[100vh]">
       <div className="flex flex-col items-end h-[100px] w-full p-2 xl:p-5">

@@ -13,6 +13,7 @@ const TopArtists = () => {
   // fetching with redux func
   const { data, isFetching, isError } = useGetTopChartsQuery();
 
+  //// jsx
   return (
     <div>
       {isFetching && (
