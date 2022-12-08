@@ -5,7 +5,7 @@
     Vibrate Music Player Progressive Web App  
 </h1>
 <p align="center">
-  The first iteration of <a href="https://vbra.netlify.app/" target="_blank"> Translucent eCommerce Website </a> built with <a href="https://reactjs.org/" target="_blank"> React </a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+   Music Player (PWA) Web App <a href="https://vbra.netlify.app/" target="_blank"> Vibrate </a> built with <a href="https://reactjs.org/" target="_blank"> React </a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 <br />
 <br />
@@ -66,7 +66,7 @@
 
 ## About
 
-> **Include the ability to be responsive to all screen sizes.** <br> > **Fast and reliable access to music with Rapid API.** <br> > **Used Progressive Web App (PWA) for being able to install the app on any device** <br> > **Advanced search functionality for being able to find any songs you want, quickly and easily.** <br> > **Advanced data handling and customization with Redux toolkit.** <br> > **Pause/play control bar with advanced features for enhanced playback and customization.**
+> **Include the ability to be responsive to all screen sizes.** <br> **Fast and reliable access to music with Rapid API.** <br> **Used Progressive Web App (PWA) for being able to install the app on any device** <br> **Advanced search functionality for being able to find any songs you want, quickly and easily.** <br> **Advanced data handling and customization with Redux toolkit.** <br> **Pause/play control bar with advanced features for enhanced playback and customization.**
 
 <br />
 <br />
