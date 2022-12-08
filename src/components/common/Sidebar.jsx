@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import Admin from "../../administrator/Admin";
 
 // ^^^^^ importing necessary components ^^^^^
 
@@ -93,6 +94,15 @@ const Sidebar = () => {
               <h1> Installtion </h1>
             </Link>
           </div>
+          <div className="absolute bottom-0">
+            <a
+              className="admin w-full text-zinc-50 font-mono no-underline hover:text-sky flex items-center justify-center text-sm font-extralight cursor-default md:cursor-pointer mb-5"
+              href="https://www.github.com/sumyat-aung"
+              target="_blank"
+            >
+              Designed & built by - Su Myat Aung
+            </a>
+          </div>
         </div>
       </SidebarStyling>
 
@@ -147,6 +157,10 @@ const SidebarStyling = styled.div`
     :hover {
       color: rgb(146, 203, 252);
     }
+  }
+
+  .admin {
+    font-size: 10px;
   }
 
   .icon i {
