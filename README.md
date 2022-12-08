@@ -10,7 +10,7 @@
 <br />
 <br />
  <a href="https://vbra.netlify.app/" target="_blank">
-    <img src="./notes/overview.png" alt="Netlify Status" />
+    <img src="./public/overview.png" alt="Overview" />
   </a>
   
   <br />
