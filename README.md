@@ -8,6 +8,10 @@
    Music Player (PWA) Web App <a href="https://vbra.netlify.app/" target="_blank"> Vibrate </a> built with <a href="https://reactjs.org/" target="_blank"> React </a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 <br />
+ <a href="https://vbra.netlify.app/" target="_blank">
+     Visit for more information
+  </a>
+<br />
 <br />
  <a href="https://vbra.netlify.app/" target="_blank">
     <img src="./public/overview.png" width='100%' alt="Overview" />
@@ -16,6 +20,13 @@
   <br />
 <br />
   <br />
+<br />
+
+## Installation
+
+#### Installing on Windows or macOS or Mobile <a href="https://vbra.netlify.app/installation" target="_blank"> Check here for more information. </a>
+
+ <br />
 <br />
 
 > The app is designed to provide users with fast and easy access to the latest and most popular music. With its unique and modern design, Vibrate offers an intuitive and enjoyable experience for music lovers.
