@@ -14,13 +14,14 @@ const ArtistDetail = () => {
   let { artistsid } = useParams();
   const { data, isError, isFetching } = useGetArtistDetailsQuery({ artistsid });
 
+  console.log(useGetArtistDetailsQuery({ artistsid }));
+
   // navigating
   const navigate = useNavigate();
 
   // turning ( data => return 3  key, value pars of obj )  Into array
-  let songs = data && Object.values(data?.songs);
-  let albums = data && Object.values(data?.albums);
-  let artists = data && Object.values(data?.artists);
+  console.log(data?.data[0]?.attributes);
+  console.log(data?.data[0]);
 
   //// jsx
   return (
@@ -39,7 +40,7 @@ const ArtistDetail = () => {
 
       {data && (
         <div className="flex flex-col lg:flex-row lg:h-[100vh] relative">
-          <ArtistsDetailSongs className="xl:w-1/2 lg:w-[40%] w-full overflow-auto">
+          {/* <ArtistsDetailSongs className="xl:w-1/2 lg:w-[40%] w-full overflow-auto">
             <div className="h-[500px] flex flex-col justify-center items-center">
               <div className="relative">
                 <img
@@ -67,11 +68,11 @@ const ArtistDetail = () => {
                 ))}
               </div>
             </div>
-          </ArtistsDetailSongs>
+          </ArtistsDetailSongs> */}
 
           {/* -------------------- */}
 
-          <AlbumsStyling className="xl:w-1/2 lg:w-[60%] w-full overflow-auto">
+          {/* <AlbumsStyling className="xl:w-1/2 lg:w-[60%] w-full overflow-auto">
             <h1 className="text-2xl text-gray-30 text-gray-200 font-semibold tracking-wide sticky top-0 z-20 bg-main py-5 px-10">
               {artists[0]?.attributes?.name}'s Albums
             </h1>
@@ -109,7 +110,7 @@ const ArtistDetail = () => {
                 </div>
               ))}
             </div>
-          </AlbumsStyling>
+          </AlbumsStyling> */}
           <button
             className="absolute top-5 left-5 cursor-default sm:cursor-pointer"
             onClick={() => navigate(-1)}
