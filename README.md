@@ -87,5 +87,5 @@
  
  <div align="center">
   <img alt="Logo" src="https://user-images.githubusercontent.com/108873224/204333286-933d52ca-91f2-4d94-8266-944bdbe9628d.png" width="100" />
-  <h6> Designed & Build By <a href="https://github.com/sumyat-aung/">Su Myat Aung</a></h1>
+  <h6> Designed & Built By <a href="https://github.com/sumyat-aung/">Su Myat Aung</a></h1>
 </div>
