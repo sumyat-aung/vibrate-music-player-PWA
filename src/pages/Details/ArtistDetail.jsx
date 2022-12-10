@@ -5,7 +5,6 @@ import { useGetArtistDetailsQuery } from "../../redux/data/Songs";
 
 import Error from "../../components/common/Error";
 import SongLoading from "../../components/common/SongLoading";
-import ArtistDetailSongsCard from "../../components/songs-card/ArtistsSongCard";
 
 // ^^^^^ importing necessary components ^^^^^
 
@@ -19,13 +18,11 @@ const ArtistDetail = () => {
   // navigating
   const navigate = useNavigate();
 
-  // turning ( data => return 3  key, value pars of obj )  Into array
-  console.log(data?.data[0]?.attributes);
-  console.log(data?.data[0]);
+  let artist = data?.data[0]?.attributes;
 
   //// jsx
   return (
-    <div>
+    <ArtistsDetailSongs>
       {isFetching && (
         <div className="xl:w-[calc(100vw-300px)] w-[100vw] h-[100vh] flex items-center justify-center">
           <SongLoading />
@@ -39,78 +36,41 @@ const ArtistDetail = () => {
       )}
 
       {data && (
-        <div className="flex flex-col lg:flex-row lg:h-[100vh] relative">
-          {/* <ArtistsDetailSongs className="xl:w-1/2 lg:w-[40%] w-full overflow-auto">
-            <div className="h-[500px] flex flex-col justify-center items-center">
-              <div className="relative">
-                <img
-                  className="rounded-full w-[300px]"
-                  src={artists[0]?.attributes?.artwork?.url}
-                  alt={artists[0]?.attributes?.name}
-                />
-                <img
-                  className="rounded-full absolute top-0 left-0 blur -z-10 w-[300px]"
-                  src={artists[0]?.attributes?.artwork?.url}
-                />
-              </div>
-              <h1 className="text-gray-50 text-3xl tracking-wider mt-4">
-                {artists[0]?.attributes?.name}
-              </h1>
+        <div className="flex justify-center items-center relative">
+          <div className="md:w-[700px] w-[100vw] flex flex-col justify-center items-center my-20">
+            <div className="relative ">
+              <img
+                src={artist?.artwork?.url}
+                alt={artist?.name}
+                className="rounded-full z-10 relative"
+              />
+              <img
+                src={artist?.artwork?.url}
+                alt={artist?.name}
+                className="rounded-full blur absolute top-0 left-0 z-0"
+              />
+            </div>
+            <div className="flex justify-around items-center my-10 w-full">
+              <h1 className="text-2xl text-gray-50">{artist?.name}</h1>
+              <h2 className="text-lg text-gray-400">{artist?.bornOrFormed}</h2>
             </div>
 
-            <div>
-              <h1 className="text-2xl text-gray-30 text-gray-200 font-semibold tracking-wide sticky top-0 z-50 bg-main p-5">
-                {artists[0]?.attributes?.name}'s Songs
-              </h1>
-              <div className="flex flex-wrap justify-center overflow-auto">
-                {songs.map((song) => (
-                  <ArtistDetailSongsCard d={song} key={song.key} />
-                ))}
-              </div>
-            </div>
-          </ArtistsDetailSongs> */}
-
-          {/* -------------------- */}
-
-          {/* <AlbumsStyling className="xl:w-1/2 lg:w-[60%] w-full overflow-auto">
-            <h1 className="text-2xl text-gray-30 text-gray-200 font-semibold tracking-wide sticky top-0 z-20 bg-main py-5 px-10">
-              {artists[0]?.attributes?.name}'s Albums
-            </h1>
-            <div className="flex flex-col mt-10 sm:px-10 px-1 justify-center wrapper">
-              {albums.map((al) => (
-                <div
-                  className="bg-sb_bg rounded shadow flex my-5 animate-slideright"
-                  key={al.key}
+            <div className="text-center">
+              {artist?.genreNames.map((g) => (
+                <span
+                  className="text-2xl leading-4 tracking-wider text-gray-300 mx-2"
+                  key={g}
                 >
-                  <div className="relative">
-                    <img
-                      className="rounded w-[250px] h-full object-cover "
-                      src={artists[0]?.attributes?.artwork?.url}
-                      alt={artists[0]?.attributes?.name}
-                    />
-                  </div>
-                  <div className="py-5 px-5 w-full">
-                    <h1 className="font-wide text-md sm:text-2xl text-white mb-2">
-                      {al?.attributes?.name}
-                    </h1>
-                    <h1 className="font-wide text-sm sm:text-xl text-gray-50">
-                      {al?.attributes?.artistName}
-                    </h1>
-                    <h1 className="font-wide text-xs lg:text-md  text-gray-400">
-                      Release Date : {al?.attributes?.releaseDate}
-                    </h1>
-                    <a
-                      href={al?.attributes?.url}
-                      target="_blank"
-                      className="font-wide text-md  text-gray-300 hover:translate-x-1 no-underline flex justify-end font-mono duration-500"
-                    >
-                      See More ⇀
-                    </a>
-                  </div>
-                </div>
+                  {g}
+                </span>
               ))}
             </div>
-          </AlbumsStyling> */}
+            <h2
+              dangerouslySetInnerHTML={{ __html: artist?.artistBio }}
+              className="text-sm text-gray-400 md:w-[70vw] w-[100vw] text-center leading-6 mt-10 px-5"
+            ></h2>
+          </div>
+
           <button
             className="absolute top-5 left-5 cursor-default sm:cursor-pointer"
             onClick={() => navigate(-1)}
@@ -119,7 +79,7 @@ const ArtistDetail = () => {
           </button>
         </div>
       )}
-    </div>
+    </ArtistsDetailSongs>
   );
 };
 
@@ -134,8 +94,4 @@ const ArtistsDetailSongs = styled.div`
       filter: blur(5px);
     }
   }
-`;
-
-const AlbumsStyling = styled.div`
-  font-family: "Montserrat Alternates", sans-serif;
 `;
