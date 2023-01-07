@@ -41,7 +41,7 @@
 
  React
 
- Redux tookit
+ Redux toolkit
 
  TailwindCSS
 
