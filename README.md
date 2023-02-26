@@ -30,7 +30,7 @@
   
 ## Installation
 
-#### Installing on Windows or macOS or Mobile.  <a href="https://vbra.netlify.app/installation" target="_blank"> Check here for more information. </a>
+#### Installing on Windows, macOS or Mobile.  <a href="https://vbra.netlify.app/installation" target="_blank"> Check here for more information. </a>
 
  <br />
 <br />
